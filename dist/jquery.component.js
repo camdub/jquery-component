@@ -115,7 +115,8 @@ require('./jquery.component.js');
       }
 
       if (!mounted || data) {
-        var $el = $(_.template(this.template, this.optionsTemplate)(this.model));
+        var $el = $(Handlebars.compile(this.template)(this.model));
+        // var $el = $(_.template(this.template, this.optionsTemplate)(this.model));
         $el.find('[data-children]').html(this.children);
         $el.events(this.events).bindData(this.bindData);
         this.$el = $el;
